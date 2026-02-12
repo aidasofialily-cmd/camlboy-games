@@ -12,3 +12,7 @@ all: $(ROMS)
 
 clean:
 	rm -f games/**/*.gb
+
+# Add this to the Makefile we created earlier
+setup-roms:
+	@dune exec bin/setup_test_roms.exe
