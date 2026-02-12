@@ -9,6 +9,12 @@ let run_cmd cmd =
   | WEXITED 0 -> ()
   | _ -> failwith ("Command failed: " ^ cmd)
 
+  let setup_submodule () =
+  (* 1. Check for RGBDS dependency *)
+  print_endline "🔍 Checking for RGBDS (Game Boy Assembler)...";
+  if not (command_exists "rgbasm") then
+    failwith "❌ Error: 'rgbasm' not found. Please install RGBDS (https://github.com/rednex/rgbds) to compile test ROMs.";
+
 let setup_submodule () =
   print_endline "🐫 Initializing Camlboy-Games submodule...";
   
